@@ -14,7 +14,11 @@
   <link rel="preload" as="image" href="assets/friend2-round.png">
   <link rel="preload" as="image" href="assets/friend1.jpg">
   <link rel="preload" as="image" href="assets/friend2.jpg">
-  <link rel="stylesheet" href="style.css?v=8">
+    <link rel="preload" as="image" href="assets/ba/thumb-01.jpg">
+  <link rel="preload" as="image" href="assets/ba/thumb-02.jpg">
+  <link rel="preload" as="image" href="assets/ba/avatar-01.png">
+  <link rel="preload" as="image" href="assets/ba/avatar-02.png">
+  <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
   <div class="app-container">
@@ -33,8 +37,11 @@
       <div class="top-brand" id="top-brand">Dành bạn, cả một vườn thương.</div>
     </header>
 
-    <!-- Nút điều khiển âm thanh trên cùng bên phải -->
+    <!-- Nút điều khiển trên cùng bên phải -->
     <div class="top-controls">
+      <button class="control-pill album-pill" id="btn-open-album" aria-label="Mở album ảnh kỷ niệm 20/10">
+        <span class="control-icon">📸</span> Album 20/10 <span class="pill-badge">23</span>
+      </button>
       <button class="control-pill" id="music-toggle-btn" aria-label="Bật hoặc tắt nhạc">
         <span class="control-icon">🎵</span> Bật nhạc
       </button>
@@ -101,23 +108,14 @@
           Mong những điều đẹp đẽ<br>luôn nở bên bạn.
         </h2>
 
-        <!-- Khung ảnh kỷ niệm 2 bạn trong thiệp chúc mừng (Phong cách Công Chúa Cute) -->
-        <div class="card-friends-polaroids">
-          <div class="polaroid-card" title="Chạm để phóng to ảnh Công Chúa!">
-            <div class="polaroid-crown">👑</div>
-            <div class="polaroid-photo-wrap">
-              <img src="assets/friend1.jpg" alt="Ảnh bạn 1" class="polaroid-img">
-            </div>
-            <div class="polaroid-bow">🎀</div>
-            <div class="polaroid-caption">Công Chúa Rạng Rỡ 🌸</div>
+        <!-- Dải ảnh kỷ niệm 23 nàng thơ trong thiệp chúc mừng (Phong cách Công Chúa Cute) -->
+        <div class="card-carousel-section">
+          <div class="card-carousel-header">
+            <span class="card-carousel-title">👑 Góc Kỷ Niệm 23 Nàng Thơ 20/10</span>
+            <button class="btn-card-view-all" id="btn-card-view-all">Xem tất cả (23) ➔</button>
           </div>
-          <div class="polaroid-card" title="Chạm để phóng to ảnh Nàng Thơ!">
-            <div class="polaroid-crown">👑</div>
-            <div class="polaroid-photo-wrap">
-              <img src="assets/friend2.jpg" alt="Ảnh bạn 2" class="polaroid-img">
-            </div>
-            <div class="polaroid-bow">🎀</div>
-            <div class="polaroid-caption">Nàng Thơ Dịu Dàng 🌷</div>
+          <div class="card-carousel-track" id="card-carousel-track">
+            <!-- 23 ảnh polaroid sinh tự động bằng JS -->
           </div>
         </div>
 
@@ -161,19 +159,25 @@
       </div>
     </div>
 
-    <!-- Khung xem ảnh kỷ niệm bạn bè khi chạm vào bông hoa (Princess Photo Modal) -->
+    <!-- Khung xem ảnh kỷ niệm bạn bè khi chạm vào bông hoa (Princess Lightbox Modal) -->
     <div class="card-modal-backdrop" id="friend-photo-modal" role="dialog" aria-modal="true" aria-labelledby="friend-modal-name">
       <div class="card-modal-container friend-modal-box">
-        <button class="card-close-btn" id="btn-close-friend-modal" title="Đóng">✕</button>
+        <button class="card-close-btn" id="btn-close-friend-modal" title="Đóng (Phím Esc)">✕</button>
+
+        <!-- Nút điều hướng ảnh trước / sau -->
+        <button class="modal-nav-btn prev-btn" id="btn-prev-photo" title="Ảnh trước (Phím ←)">‹</button>
+        <button class="modal-nav-btn next-btn" id="btn-next-photo" title="Ảnh tiếp theo (Phím →)">›</button>
+
         <div class="princess-modal-crown-wrap">
           <span class="princess-crown-icon">👑</span>
         </div>
         <div class="friend-modal-photo-wrap">
-          <img id="friend-modal-img" src="assets/friend1.jpg" alt="Ảnh kỷ niệm 20/10" class="friend-modal-img">
+          <img id="friend-modal-img" src="assets/ba/photo-01.jpg" alt="Ảnh kỷ niệm 20/10" class="friend-modal-img">
           <div class="friend-modal-badge" id="friend-modal-badge">👑 20/10 Rực Rỡ & Tỏa Sáng 🌸</div>
         </div>
         <div class="princess-modal-bow">🎀</div>
         <div class="friend-modal-content">
+          <div class="photo-counter-tag" id="photo-counter-tag">Ảnh 1 / 23</div>
           <h3 class="friend-modal-name" id="friend-modal-name">Nàng Công Chúa Rạng Rỡ</h3>
           <p class="friend-modal-wish-text" id="friend-modal-wish">
             Chúc nàng công chúa ngày 20/10 luôn rạng ngời xinh đẹp, tự tin, nụ cười luôn tỏa nắng và đón nhận muôn vàn yêu thương ngọt ngào nhất! 💖✨
@@ -186,8 +190,37 @@
         </div>
       </div>
     </div>
+
+    <!-- Triển lãm Album Kỷ Niệm 20/10 (Album Gallery Modal) -->
+    <div class="card-modal-backdrop album-modal-backdrop" id="album-gallery-modal" role="dialog" aria-modal="true" aria-labelledby="album-modal-title">
+      <div class="card-modal-container album-modal-container">
+        <button class="card-close-btn" id="btn-close-album-modal" title="Đóng Album">✕</button>
+
+        <div class="album-modal-header">
+          <div class="album-crown-icon">👑</div>
+          <h2 class="album-modal-title" id="album-modal-title">🌸 Triển Lãm Kỷ Niệm 20/10 🌸</h2>
+          <p class="album-modal-subtitle">Gửi trọn yêu thương đến những đóa hoa rực rỡ nhất!</p>
+
+          <!-- Thanh lọc danh mục ảnh -->
+          <div class="album-filter-tabs">
+            <button class="album-tab active" data-filter="all">Tất cả (23)</button>
+            <button class="album-tab" data-filter="portrait">Nàng Thơ (18)</button>
+            <button class="album-tab" data-filter="landscape">Khoảnh Khắc Tập Thể (5)</button>
+          </div>
+        </div>
+
+        <!-- Lưới ảnh Polaroid nghệ thuật -->
+        <div class="album-masonry-grid" id="album-masonry-grid"></div>
+
+        <div class="album-modal-footer">
+          <button class="btn-view-garden" id="btn-album-back-garden">
+            🌸 Về ngắm vườn hoa
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <script src="main.js?v=9"></script>
+  <script src="main.js?v=10"></script>
 </body>
 </html>

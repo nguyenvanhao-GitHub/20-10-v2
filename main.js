@@ -145,26 +145,241 @@ function createStemImageHTML(flip = false) {
 // =============================================================================
 // THÔNG TIN VÀ ẢNH KỶ NIỆM 20/10 CỦA 2 BẠN NỮ
 // =============================================================================
-const FRIEND_DATA = {
-  1: {
+// =============================================================================
+// DỮ LIỆU TRIỂN LÃM 23 BỨC ẢNH KỶ NIỆM 20/10 (BA TEAM & NÀNG THƠ)
+// =============================================================================
+const BA_GALLERY_DATA = [
+  {
     id: 1,
-    name: 'Nàng Công Chúa Rạng Rỡ',
-    nickname: 'Công chúa nhỏ 🌸',
-    avatar: 'assets/friend1-round.png',
-    fullPhoto: 'assets/friend1.jpg',
-    badge: '👑 20/10 Rực Rỡ & Tỏa Sáng 🌸',
-    wish: 'Chúc nàng công chúa ngày 20/10 luôn rạng ngời xinh đẹp, tự tin, nụ cười luôn tỏa nắng và đón nhận muôn vàn yêu thương ngọt ngào nhất! 💖✨'
+    title: 'Nàng Thơ Tươi Tắn',
+    badge: '👑 Rạng Rỡ 20/10 🌸',
+    wish: 'Chúc bạn 20/10 luôn tràn ngập năng lượng tích cực, nụ cười luôn nở trên môi và gặp thật nhiều may mắn! 💖',
+    full: 'assets/ba/photo-01.jpg',
+    thumb: 'assets/ba/thumb-01.jpg',
+    avatar: 'assets/ba/avatar-01.png',
+    type: 'square'
   },
-  2: {
+  {
     id: 2,
-    name: 'Nàng Thơ Dịu Dàng',
-    nickname: 'Nàng thơ dịu dàng 🌷',
-    avatar: 'assets/friend2-round.png',
-    fullPhoto: 'assets/friend2.jpg',
-    badge: '👑 20/10 Ngọt Ngào & Bình An 🌷',
-    wish: 'Chúc nàng thơ ngày 20/10 luôn đáng yêu, hạnh phúc trọn vẹn, tâm hồn bình yên và mỗi ngày đều nở rộ như đóa hoa ngát hương! 🌷✨'
+    title: 'Nàng Công Chúa Dịu Dàng',
+    badge: '👑 Dịu Ngọt & Tự Tin ✨',
+    wish: 'Chúc bạn luôn xinh đẹp, kiêu sa như đóa hồng và tự tin tỏa sáng theo cách riêng của mình! 🌹',
+    full: 'assets/ba/photo-02.jpg',
+    thumb: 'assets/ba/thumb-02.jpg',
+    avatar: 'assets/ba/avatar-02.png',
+    type: 'portrait'
+  },
+  {
+    id: 3,
+    title: 'Nụ Cười Tỏa Nắng',
+    badge: '🌸 Bình An & Hạnh Phúc 🌷',
+    wish: 'Mong rằng mỗi ngày của bạn đều ngọt ngào, ấm áp và luôn được yêu thương trọn vẹn nhất! 🌷',
+    full: 'assets/ba/photo-03.jpg',
+    thumb: 'assets/ba/thumb-03.jpg',
+    avatar: 'assets/ba/avatar-03.png',
+    type: 'portrait'
+  },
+  {
+    id: 4,
+    title: 'Xinh Đẹp & Đáng Yêu',
+    badge: '👑 Ngọt Ngào Say Đắm 💖',
+    wish: 'Chúc bạn ngày 20/10 nhận được thật nhiều hoa, nhiều quà và muôn lời chúc tốt lành nhất! 🎁',
+    full: 'assets/ba/photo-04.jpg',
+    thumb: 'assets/ba/thumb-04.jpg',
+    avatar: 'assets/ba/avatar-04.png',
+    type: 'square'
+  },
+  {
+    id: 5,
+    title: 'Khoảnh Khắc Đáng Nhớ',
+    badge: '✨ Gắn Kết & Yêu Thương 🌸',
+    wish: 'Cảm ơn vì đã luôn là một phần tuyệt vời, mang đến tiếng cười và sự dịu dàng cho tất cả mọi người! 🌸',
+    full: 'assets/ba/photo-05.jpg',
+    thumb: 'assets/ba/thumb-05.jpg',
+    avatar: 'assets/ba/avatar-05.png',
+    type: 'landscape'
+  },
+  {
+    id: 6,
+    title: 'Nét Duyên Dịu Dàng',
+    badge: '👑 Xinh Tươi Rạng Ngời 💖',
+    wish: 'Chúc bạn luôn giữ trọn nét hồn nhiên, tâm hồn an yên và cuộc sống luôn ngập tràn sắc màu rực rỡ! 💖',
+    full: 'assets/ba/photo-06.jpg',
+    thumb: 'assets/ba/thumb-06.jpg',
+    avatar: 'assets/ba/avatar-06.png',
+    type: 'portrait'
+  },
+  {
+    id: 7,
+    title: 'Kỷ Niệm Tỏa Sáng',
+    badge: '🌷 Tràn Đầy Yêu Thương ✨',
+    wish: 'Mỗi khoảnh khắc bên nhau đều là một kỷ niệm đẹp. Chúc các cô gái 20/10 hạnh phúc viên mãn! 🌷',
+    full: 'assets/ba/photo-07.jpg',
+    thumb: 'assets/ba/thumb-07.jpg',
+    avatar: 'assets/ba/avatar-07.png',
+    type: 'landscape'
+  },
+  {
+    id: 8,
+    title: 'Nụ Cười Tình Bạn',
+    badge: '🌸 Mãi Mãi Rực Rỡ 💖',
+    wish: 'Chúc tình bạn của chúng ta luôn bền chặt, gắn bó và cùng nhau tạo nên thật nhiều điều tuyệt vời! 💖',
+    full: 'assets/ba/photo-08.jpg',
+    thumb: 'assets/ba/thumb-08.jpg',
+    avatar: 'assets/ba/avatar-08.png',
+    type: 'landscape'
+  },
+  {
+    id: 9,
+    title: 'Công Chúa Ngọt Ngào',
+    badge: '👑 Xinh Đẹp Tỏa Nắng 🌹',
+    wish: 'Chúc bạn ngày 20/10 luôn ngập tràn niềm vui, công việc thuận lợi và hạnh phúc đong đầy! 🌹',
+    full: 'assets/ba/photo-09.jpg',
+    thumb: 'assets/ba/thumb-09.jpg',
+    avatar: 'assets/ba/avatar-09.png',
+    type: 'portrait'
+  },
+  {
+    id: 10,
+    title: 'Đôi Mắt Tỏa Sáng',
+    badge: '✨ Hồn Nhiên & Yêu Đời 🌷',
+    wish: 'Mong nụ cười tươi tắn này sẽ luôn nở trên môi bạn trong suốt 365 ngày của năm! 🌷',
+    full: 'assets/ba/photo-10.jpg',
+    thumb: 'assets/ba/thumb-10.jpg',
+    avatar: 'assets/ba/avatar-10.png',
+    type: 'square'
+  },
+  {
+    id: 11,
+    title: 'Nàng Thơ Kiêu Kỳ',
+    badge: '👑 Quý Phái & Xinh Đẹp 💖',
+    wish: 'Chúc bạn luôn xinh đẹp, sang trọng và gặt hái được mọi thành công mà bạn hằng ấp ủ! 💖',
+    full: 'assets/ba/photo-11.jpg',
+    thumb: 'assets/ba/thumb-11.jpg',
+    avatar: 'assets/ba/avatar-11.png',
+    type: 'portrait'
+  },
+  {
+    id: 12,
+    title: 'Thanh Xuân Rực Rỡ',
+    badge: '🌸 Tươi Tắn Môi Cười 🌸',
+    wish: 'Thanh xuân này thật đẹp vì có bạn. Chúc bạn một ngày 20/10 ấm áp và hạnh phúc ngập tràn! 🌸',
+    full: 'assets/ba/photo-12.jpg',
+    thumb: 'assets/ba/thumb-12.jpg',
+    avatar: 'assets/ba/avatar-12.png',
+    type: 'portrait'
+  },
+  {
+    id: 13,
+    title: 'Công Chúa Dễ Thương',
+    badge: '👑 Dễ Thương Vô Đối 🎀',
+    wish: 'Chúc bạn mãi giữ được vẻ đáng yêu, luôn vui vẻ và được mọi người xung quanh cưng chiều hết mực! 🎀',
+    full: 'assets/ba/photo-13.jpg',
+    thumb: 'assets/ba/thumb-13.jpg',
+    avatar: 'assets/ba/avatar-13.png',
+    type: 'portrait'
+  },
+  {
+    id: 14,
+    title: 'Giai Điệu Ngọt Ngào',
+    badge: '🌷 An Yên & May Mắn ✨',
+    wish: 'Chúc cuộc đời bạn như một bản tình ca êm dịu, mọi điều may mắn và bình an luôn đồng hành! ✨',
+    full: 'assets/ba/photo-14.jpg',
+    thumb: 'assets/ba/thumb-14.jpg',
+    avatar: 'assets/ba/avatar-14.png',
+    type: 'portrait'
+  },
+  {
+    id: 15,
+    title: 'Hội Chị Em Tỏa Sáng',
+    badge: '💖 Gắn Kết Bền Lâu 🌸',
+    wish: 'Gửi ngàn lời chúc yêu thương đến tất cả các cô gái tuyệt vời! Chúc hội chị em mãi rạng rỡ và thành công! 💖',
+    full: 'assets/ba/photo-15.jpg',
+    thumb: 'assets/ba/thumb-15.jpg',
+    avatar: 'assets/ba/avatar-15.png',
+    type: 'landscape'
+  },
+  {
+    id: 16,
+    title: 'Nàng Thơ Trong Trẻo',
+    badge: '👑 Trong Sáng Tinh Khôi 🌹',
+    wish: 'Chúc bạn 20/10 luôn giữ trọn nét duyên dáng, đáng yêu và được vạn người yêu mến! 🌹',
+    full: 'assets/ba/photo-16.jpg',
+    thumb: 'assets/ba/thumb-16.jpg',
+    avatar: 'assets/ba/avatar-16.png',
+    type: 'portrait'
+  },
+  {
+    id: 17,
+    title: 'Gương Mặt Rạng Rỡ',
+    badge: '✨ Tràn Ngập Niềm Vui 🌷',
+    wish: 'Mong bạn luôn tự tin vào chính mình, yêu thương bản thân và luôn hạnh phúc trọn vẹn! 🌷',
+    full: 'assets/ba/photo-17.jpg',
+    thumb: 'assets/ba/thumb-17.jpg',
+    avatar: 'assets/ba/avatar-17.png',
+    type: 'square'
+  },
+  {
+    id: 18,
+    title: 'Đóa Hoa Rực Rỡ',
+    badge: '👑 Tỏa Sáng Muôn Nơi 🌸',
+    wish: 'Chúc bạn như một đóa hoa ngát hương, dù ở nơi đâu cũng luôn nổi bật và tỏa sáng rực rỡ nhất! 🌸',
+    full: 'assets/ba/photo-18.jpg',
+    thumb: 'assets/ba/thumb-18.jpg',
+    avatar: 'assets/ba/avatar-18.png',
+    type: 'portrait'
+  },
+  {
+    id: 19,
+    title: 'Dịu Dàng Nắng Mai',
+    badge: '🌷 Ấm Áp & Bình Yên 💖',
+    wish: 'Chúc bạn ngày 20/10 nhận được nhiều sự quan tâm ngọt ngào từ những người bạn yêu thương! 💖',
+    full: 'assets/ba/photo-19.jpg',
+    thumb: 'assets/ba/thumb-19.jpg',
+    avatar: 'assets/ba/avatar-19.png',
+    type: 'portrait'
+  },
+  {
+    id: 20,
+    title: 'Công Chúa Yêu Đời',
+    badge: '👑 Yêu Đời Lạc Quan ✨',
+    wish: 'Chúc bạn luôn giữ được tinh thần lạc quan, mọi điều muộn phiền đều tan biến và chỉ còn lại niềm vui! ✨',
+    full: 'assets/ba/photo-20.jpg',
+    thumb: 'assets/ba/thumb-20.jpg',
+    avatar: 'assets/ba/avatar-20.png',
+    type: 'portrait'
+  },
+  {
+    id: 21,
+    title: 'Kỷ Niệm Đẹp Đẽ',
+    badge: '🌸 Mãi Mãi Tuổi Xuân 💖',
+    wish: 'Cảm ơn những nụ cười và kỷ niệm tuyệt vời. Chúc các bạn một ngày 20/10 ngập tràn hạnh phúc! 💖',
+    full: 'assets/ba/photo-21.jpg',
+    thumb: 'assets/ba/thumb-21.jpg',
+    avatar: 'assets/ba/avatar-21.png',
+    type: 'landscape'
+  },
+  {
+    id: 22,
+    title: 'Nét Cười Duyên Dáng',
+    badge: '👑 Duyên Dáng Đáng Yêu 🌷',
+    wish: 'Chúc bạn ngày 20/10 luôn tràn đầy cảm hứng, tình yêu và hạnh phúc ngọt ngào nhất! 🌷',
+    full: 'assets/ba/photo-22.jpg',
+    thumb: 'assets/ba/thumb-22.jpg',
+    avatar: 'assets/ba/avatar-22.png',
+    type: 'portrait'
+  },
+  {
+    id: 23,
+    title: 'Ngôi Sao Sáng Nhất',
+    badge: '👑 Tỏa Sáng Trọn Vẹn 💖',
+    wish: 'Chúc bạn luôn tỏa sáng như ngôi sao lấp lánh trên bầu trời, đạt được mọi ước vọng và luôn mỉm cười! 💖',
+    full: 'assets/ba/photo-23.jpg',
+    thumb: 'assets/ba/thumb-23.jpg',
+    avatar: 'assets/ba/avatar-23.png',
+    type: 'portrait'
   }
-};
+];
 
 let gardenFlowersData = [];
 
@@ -326,66 +541,33 @@ function buildGarden() {
   }
 
   
-  // Đóa hoa kỷ niệm lồng ảnh chân dung 2 bạn rạng rỡ giữa khu vườn
-  const photoSizeMain = Math.floor(136 * sizeScale);
-  const photoSizeSub = Math.floor(108 * sizeScale);
+    // Đóa hoa kỷ niệm lồng ảnh 23 nàng thơ phân bổ khắp các tầng khu vườn
+  const photoFlowerCount = isMobile ? 12 : 18;
+  const photoSizeMain = Math.floor(134 * sizeScale);
+  const photoSizeSub = Math.floor(104 * sizeScale);
 
-  // Đóa hoa Bạn 1 (bên trái tiền cảnh)
-  flowerItems.push({
-    xPct: isMobile ? 22 : 25,
-    sizePx: photoSizeMain,
-    heightPx: Math.floor(containerHeight * (isMobile ? 0.27 : 0.30)),
-    type: 'rose',
-    layer: 32,
-    palette: COLOR_PALETTES[0],
-    bend: -6,
-    stemLengthPx: Math.floor(80 * sizeScale),
-    hasStem: true,
-    photoFriend: 1
-  });
+  // Phân bổ đều các nàng thơ trên các vị trí đẹp mắt khắp chiều rộng khu vườn
+  for (let pi = 0; pi < photoFlowerCount; pi++) {
+    const photoItem = BA_GALLERY_DATA[pi % BA_GALLERY_DATA.length];
+    const isFrontTier = pi % 2 === 0;
+    const xRatio = (pi + 0.5) / photoFlowerCount;
+    const xPct = Math.max(3, Math.min(97, xRatio * 94 + 3 + (rand() * 4 - 2)));
+    if (Math.abs(xPct - 50) < 6) continue; // Nhường khoảng thoáng cho hoa Hero
 
-  // Đóa hoa Bạn 2 (bên phải tiền cảnh)
-  flowerItems.push({
-    xPct: isMobile ? 78 : 75,
-    sizePx: photoSizeMain,
-    heightPx: Math.floor(containerHeight * (isMobile ? 0.27 : 0.30)),
-    type: 'rose',
-    layer: 32,
-    palette: COLOR_PALETTES[1],
-    bend: 6,
-    stemLengthPx: Math.floor(80 * sizeScale),
-    hasStem: true,
-    photoFriend: 2
-  });
-
-  // Hai đóa hoa phụ ở tầng giữa (đan xen tạo điểm nhấn phong phú)
-  flowerItems.push({
-    xPct: isMobile ? 38 : 40,
-    sizePx: photoSizeSub,
-    heightPx: Math.floor(containerHeight * (isMobile ? 0.44 : 0.46)),
-    type: 'rose',
-    layer: 18,
-    palette: COLOR_PALETTES[4],
-    bend: -8,
-    stemLengthPx: Math.floor(95 * sizeScale),
-    hasStem: true,
-    photoFriend: 1
-  });
-
-  flowerItems.push({
-    xPct: isMobile ? 62 : 60,
-    sizePx: photoSizeSub,
-    heightPx: Math.floor(containerHeight * (isMobile ? 0.44 : 0.46)),
-    type: 'rose',
-    layer: 18,
-    palette: COLOR_PALETTES[2],
-    bend: 8,
-    stemLengthPx: Math.floor(95 * sizeScale),
-    hasStem: true,
-    photoFriend: 2
-  });
-
-  // Tạo phần tử DOM cho toàn bộ khu vườn bằng DocumentFragment.
+    flowerItems.push({
+      xPct: xPct,
+      sizePx: isFrontTier ? photoSizeMain : photoSizeSub,
+      heightPx: Math.floor(containerHeight * (isFrontTier ? (0.24 + rand() * 0.12) : (0.42 + rand() * 0.14))),
+      type: 'rose',
+      layer: isFrontTier ? 27 : 19,
+      palette: gardenPalette(pi),
+      bend: (rand() - 0.5) * 14,
+      stemLengthPx: Math.floor((isFrontTier ? 75 : 95) * sizeScale),
+      hasStem: true,
+      photoFriend: photoItem.id
+    });
+  }
+// Tạo phần tử DOM cho toàn bộ khu vườn bằng DocumentFragment.
   let budIndex = 0;
   const fragment = document.createDocumentFragment();
   flowerItems.forEach((item, idx) => {
@@ -413,13 +595,13 @@ function buildGarden() {
     headWrap.style.bottom = `${item.heightPx - headHeight / 2}px`;
 
     if (item.photoFriend) {
-      const friend = FRIEND_DATA[item.photoFriend];
+      const pData = BA_GALLERY_DATA.find(x => x.id === item.photoFriend) || BA_GALLERY_DATA[0];
       headWrap.classList.add('has-photo-cameo');
       headWrap.innerHTML = createRoseImageHTML(item.palette) +
-        '<div class="flower-photo-cameo" data-friend-id="' + item.photoFriend + '" title="Chạm để xem ảnh và lời chúc của ' + friend.name + '!">' +
+        '<div class="flower-photo-cameo" data-photo-id="' + pData.id + '" title="Chạm để xem ảnh của ' + pData.title + '!">' +
           '<div class="cameo-crown">👑</div>' +
           '<div class="cameo-avatar-frame">' +
-            '<img src="' + friend.avatar + '" alt="' + friend.name + '" class="photo-cameo-img">' +
+            '<img src="' + pData.avatar + '" alt="' + pData.title + '" class="photo-cameo-img">' +
             '<div class="photo-cameo-ring"></div>' +
             '<div class="photo-cameo-sparkles">' +
               '<span class="cameo-star star-1">✨</span>' +
@@ -427,7 +609,7 @@ function buildGarden() {
             '</div>' +
           '</div>' +
           '<div class="cameo-ribbon-bow">🎀</div>' +
-          '<div class="cameo-name-tag">' + friend.nickname + '</div>' +
+          '<div class="cameo-name-tag">' + pData.title + '</div>' +
         '</div>';
     } else if (item.type === 'button') {
       headWrap.innerHTML = createOrganicButtonSVG(item.palette, `g-${idx}`, item.sizePx);
@@ -1115,17 +1297,20 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
 
+    // Các sự kiện cho Modal xem ảnh Công Chúa (Lightbox)
   const btnCloseFriendModal = document.getElementById('btn-close-friend-modal');
-  if (btnCloseFriendModal) {
-    btnCloseFriendModal.addEventListener('click', closeFriendPhotoModal);
-  }
+  if (btnCloseFriendModal) btnCloseFriendModal.addEventListener('click', closeFriendPhotoModal);
+
+  const btnPrevPhoto = document.getElementById('btn-prev-photo');
+  if (btnPrevPhoto) btnPrevPhoto.addEventListener('click', (e) => { e.stopPropagation(); showPrevPhoto(); });
+
+  const btnNextPhoto = document.getElementById('btn-next-photo');
+  if (btnNextPhoto) btnNextPhoto.addEventListener('click', (e) => { e.stopPropagation(); showNextPhoto(); });
 
   const friendModalBackdrop = document.getElementById('friend-photo-modal');
   if (friendModalBackdrop) {
     friendModalBackdrop.addEventListener('click', (e) => {
-      if (e.target === friendModalBackdrop) {
-        closeFriendPhotoModal();
-      }
+      if (e.target === friendModalBackdrop) closeFriendPhotoModal();
     });
   }
 
@@ -1135,24 +1320,83 @@ window.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation();
       playChimeNote(880);
       const rect = btnFriendHeart.getBoundingClientRect();
-      spawnBurstParticles(rect.left + rect.width / 2, rect.top, 24);
-      btnFriendHeart.textContent = '💖 Đã gửi ngàn yêu thương!';
-      setTimeout(() => {
-        btnFriendHeart.textContent = '💖 Thả tim chúc mừng';
-      }, 1800);
+      spawnBurstParticles(rect.left + rect.width / 2, rect.top, 30);
+      btnFriendHeart.textContent = '💖 Đã bắn ngàn trái tim!';
+      setTimeout(() => { btnFriendHeart.textContent = '💖 Bắn tim yêu thương'; }, 1800);
     });
   }
 
-  const polaroidCards = document.querySelectorAll('.polaroid-card');
-  if (polaroidCards.length >= 2) {
-    polaroidCards[0].addEventListener('click', (e) => {
-      e.stopPropagation();
-      openFriendPhotoModal(1);
+  // Các sự kiện cho Triển lãm Album 20/10
+  const btnOpenAlbum = document.getElementById('btn-open-album');
+  if (btnOpenAlbum) btnOpenAlbum.addEventListener('click', openAlbumModal);
+
+  const btnCloseAlbum = document.getElementById('btn-close-album-modal');
+  if (btnCloseAlbum) btnCloseAlbum.addEventListener('click', closeAlbumModal);
+
+  const btnAlbumBack = document.getElementById('btn-album-back-garden');
+  if (btnAlbumBack) btnAlbumBack.addEventListener('click', closeAlbumModal);
+
+  const albumBackdrop = document.getElementById('album-gallery-modal');
+  if (albumBackdrop) {
+    albumBackdrop.addEventListener('click', (e) => {
+      if (e.target === albumBackdrop) closeAlbumModal();
     });
-    polaroidCards[1].addEventListener('click', (e) => {
-      e.stopPropagation();
-      openFriendPhotoModal(2);
+  }
+
+  // Bộ lọc tab danh mục ảnh trong Album
+  const tabBtns = document.querySelectorAll('.album-tab');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderAlbumGrid(btn.getAttribute('data-filter') || 'all');
     });
+  });
+
+  // Nút mở toàn bộ album từ bức thiệp chúc mừng
+  const btnCardViewAll = document.getElementById('btn-card-view-all');
+  if (btnCardViewAll) {
+    btnCardViewAll.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeCardModal();
+      openAlbumModal();
+    });
+  }
+
+  // Khởi tạo dải cuộn polaroid trong thiệp
+  renderCardCarousel();
+
+  // Hỗ trợ phím tắt bàn phím (ArrowLeft, ArrowRight, Escape)
+  window.addEventListener('keydown', (e) => {
+    const friendModal = document.getElementById('friend-photo-modal');
+    if (friendModal && friendModal.classList.contains('open')) {
+      if (e.key === 'ArrowRight') showNextPhoto();
+      else if (e.key === 'ArrowLeft') showPrevPhoto();
+      else if (e.key === 'Escape') closeFriendPhotoModal();
+    }
+    const albumModal = document.getElementById('album-gallery-modal');
+    if (albumModal && albumModal.classList.contains('open')) {
+      if (e.key === 'Escape') closeAlbumModal();
+    }
+  });
+
+  // Hỗ trợ cử chỉ vuốt chạm trên điện thoại để lật ảnh (Touch Swipe)
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const friendModalBox = document.querySelector('.friend-modal-box');
+  if (friendModalBox) {
+    friendModalBox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    friendModalBox.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 45) {
+        showNextPhoto(); // Vuốt sang trái -> Ảnh kế tiếp
+      } else if (touchEndX - touchStartX > 45) {
+        showPrevPhoto(); // Vuốt sang phải -> Ảnh trước
+      }
+    }, { passive: true });
   }
 
   // Thích ứng mượt mà khi người dùng xoay ngang màn hình hoặc đổi cỡ cửa sổ
