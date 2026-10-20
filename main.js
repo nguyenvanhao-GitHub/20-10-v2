@@ -141,6 +141,29 @@ function createStemImageHTML(flip = false) {
 // =============================================================================
 // 6. KHỞI TẠO BỨC TƯỜNG HOA DÀY ĐẶC (TIERED GARDEN LAYOUT - KHỚP 100% ẢNH 2)
 // =============================================================================
+
+// =============================================================================
+// THÔNG TIN VÀ ẢNH KỶ NIỆM 20/10 CỦA 2 BẠN NỮ
+// =============================================================================
+const FRIEND_DATA = {
+  1: {
+    id: 1,
+    name: 'Bạn thương mến',
+    avatar: 'assets/friend1-round.png',
+    fullPhoto: 'assets/friend1.jpg',
+    badge: '🌸 20/10 Rạng Rỡ 🌸',
+    wish: 'Chúc bạn ngày 20/10 luôn rạng ngời xinh đẹp, tự tin, yêu đời và đạt được mọi điều ngọt ngào nhất trong cuộc sống! 💖'
+  },
+  2: {
+    id: 2,
+    name: 'Bạn dịu dàng',
+    avatar: 'assets/friend2-round.png',
+    fullPhoto: 'assets/friend2.jpg',
+    badge: '🌷 20/10 Hạnh Phúc 🌷',
+    wish: 'Chúc bạn 20/10 ngập tràn niềm vui, nụ cười luôn tỏa nắng, an yên và luôn được yêu thương trọn vẹn mỗi ngày! ✨'
+  }
+};
+
 let gardenFlowersData = [];
 
 function buildGarden() {
@@ -300,6 +323,66 @@ function buildGarden() {
     });
   }
 
+  
+  // Đóa hoa kỷ niệm lồng ảnh chân dung 2 bạn rạng rỡ giữa khu vườn
+  const photoSizeMain = Math.floor(136 * sizeScale);
+  const photoSizeSub = Math.floor(108 * sizeScale);
+
+  // Đóa hoa Bạn 1 (bên trái tiền cảnh)
+  flowerItems.push({
+    xPct: isMobile ? 22 : 25,
+    sizePx: photoSizeMain,
+    heightPx: Math.floor(containerHeight * (isMobile ? 0.27 : 0.30)),
+    type: 'rose',
+    layer: 32,
+    palette: COLOR_PALETTES[0],
+    bend: -6,
+    stemLengthPx: Math.floor(80 * sizeScale),
+    hasStem: true,
+    photoFriend: 1
+  });
+
+  // Đóa hoa Bạn 2 (bên phải tiền cảnh)
+  flowerItems.push({
+    xPct: isMobile ? 78 : 75,
+    sizePx: photoSizeMain,
+    heightPx: Math.floor(containerHeight * (isMobile ? 0.27 : 0.30)),
+    type: 'rose',
+    layer: 32,
+    palette: COLOR_PALETTES[1],
+    bend: 6,
+    stemLengthPx: Math.floor(80 * sizeScale),
+    hasStem: true,
+    photoFriend: 2
+  });
+
+  // Hai đóa hoa phụ ở tầng giữa (đan xen tạo điểm nhấn phong phú)
+  flowerItems.push({
+    xPct: isMobile ? 38 : 40,
+    sizePx: photoSizeSub,
+    heightPx: Math.floor(containerHeight * (isMobile ? 0.44 : 0.46)),
+    type: 'rose',
+    layer: 18,
+    palette: COLOR_PALETTES[4],
+    bend: -8,
+    stemLengthPx: Math.floor(95 * sizeScale),
+    hasStem: true,
+    photoFriend: 1
+  });
+
+  flowerItems.push({
+    xPct: isMobile ? 62 : 60,
+    sizePx: photoSizeSub,
+    heightPx: Math.floor(containerHeight * (isMobile ? 0.44 : 0.46)),
+    type: 'rose',
+    layer: 18,
+    palette: COLOR_PALETTES[2],
+    bend: 8,
+    stemLengthPx: Math.floor(95 * sizeScale),
+    hasStem: true,
+    photoFriend: 2
+  });
+
   // Tạo phần tử DOM cho toàn bộ khu vườn bằng DocumentFragment.
   let budIndex = 0;
   const fragment = document.createDocumentFragment();
@@ -327,7 +410,16 @@ function buildGarden() {
     headWrap.style.height = `${headHeight}px`;
     headWrap.style.bottom = `${item.heightPx - headHeight / 2}px`;
 
-    if (item.type === 'button') {
+    if (item.photoFriend) {
+      const friend = FRIEND_DATA[item.photoFriend];
+      headWrap.classList.add('has-photo-cameo');
+      headWrap.innerHTML = createRoseImageHTML(item.palette) +
+        '<div class="flower-photo-cameo" data-friend-id="' + item.photoFriend + '" title="Chạm để xem ảnh và lời chúc của ' + friend.name + '!">' +
+          '<img src="' + friend.avatar + '" alt="' + friend.name + '" class="photo-cameo-img">' +
+          '<div class="photo-cameo-ring"></div>' +
+          '<div class="photo-cameo-badge">💖</div>' +
+        '</div>';
+    } else if (item.type === 'button') {
       headWrap.innerHTML = createOrganicButtonSVG(item.palette, `g-${idx}`, item.sizePx);
     } else if (item.type === 'bud') {
       headWrap.classList.add('bud-head');
@@ -363,8 +455,12 @@ function buildGarden() {
       const rect = headWrap.getBoundingClientRect();
       const clickX = e.clientX || (rect.left + rect.width / 2);
       const clickY = e.clientY || (rect.top + rect.height / 3);
-      spawnBurstParticles(clickX, clickY, 8);
-      showFlowerLoveWhisper(clickX, clickY - 12);
+      spawnBurstParticles(clickX, clickY, item.photoFriend ? 16 : 8);
+      if (item.photoFriend) {
+        openFriendPhotoModal(item.photoFriend);
+      } else {
+        showFlowerLoveWhisper(clickX, clickY - 12);
+      }
     });
 
     fragment.appendChild(flowerEl);
@@ -1006,6 +1102,47 @@ window.addEventListener('DOMContentLoaded', () => {
   const btnCustomLink = document.getElementById('btn-custom-link');
   if (btnCustomLink) {
     btnCustomLink.addEventListener('click', createPersonalizedLink);
+  }
+
+
+  const btnCloseFriendModal = document.getElementById('btn-close-friend-modal');
+  if (btnCloseFriendModal) {
+    btnCloseFriendModal.addEventListener('click', closeFriendPhotoModal);
+  }
+
+  const friendModalBackdrop = document.getElementById('friend-photo-modal');
+  if (friendModalBackdrop) {
+    friendModalBackdrop.addEventListener('click', (e) => {
+      if (e.target === friendModalBackdrop) {
+        closeFriendPhotoModal();
+      }
+    });
+  }
+
+  const btnFriendHeart = document.getElementById('btn-friend-heart');
+  if (btnFriendHeart) {
+    btnFriendHeart.addEventListener('click', (e) => {
+      e.stopPropagation();
+      playChimeNote(880);
+      const rect = btnFriendHeart.getBoundingClientRect();
+      spawnBurstParticles(rect.left + rect.width / 2, rect.top, 24);
+      btnFriendHeart.textContent = '💖 Đã gửi ngàn yêu thương!';
+      setTimeout(() => {
+        btnFriendHeart.textContent = '💖 Thả tim chúc mừng';
+      }, 1800);
+    });
+  }
+
+  const polaroidCards = document.querySelectorAll('.polaroid-card');
+  if (polaroidCards.length >= 2) {
+    polaroidCards[0].addEventListener('click', (e) => {
+      e.stopPropagation();
+      openFriendPhotoModal(1);
+    });
+    polaroidCards[1].addEventListener('click', (e) => {
+      e.stopPropagation();
+      openFriendPhotoModal(2);
+    });
   }
 
   // Thích ứng mượt mà khi người dùng xoay ngang màn hình hoặc đổi cỡ cửa sổ

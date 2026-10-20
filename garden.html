@@ -10,7 +10,11 @@
   <link rel="preload" as="image" href="assets/rosebud-blue.png">
   <link rel="preload" as="image" href="assets/rosebud-peach.png">
   <link rel="preload" as="image" href="assets/rose-stem-leaves.png">
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="preload" as="image" href="assets/friend1-round.png">
+  <link rel="preload" as="image" href="assets/friend2-round.png">
+  <link rel="preload" as="image" href="assets/friend1.jpg">
+  <link rel="preload" as="image" href="assets/friend2.jpg">
+  <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
   <div class="app-container">
@@ -97,6 +101,22 @@
           Mong những điều đẹp đẽ<br>luôn nở bên bạn.
         </h2>
 
+        <!-- Khung ảnh kỷ niệm 2 bạn trong thiệp chúc mừng -->
+        <div class="card-friends-polaroids">
+          <div class="polaroid-card">
+            <div class="polaroid-photo-wrap">
+              <img src="assets/friend1.jpg" alt="Ảnh bạn 1" class="polaroid-img">
+            </div>
+            <div class="polaroid-caption">Rạng rỡ & Xinh tươi 🌸</div>
+          </div>
+          <div class="polaroid-card">
+            <div class="polaroid-photo-wrap">
+              <img src="assets/friend2.jpg" alt="Ảnh bạn 2" class="polaroid-img">
+            </div>
+            <div class="polaroid-caption">Ngọt ngào & Bình an 🌷</div>
+          </div>
+        </div>
+
         <!-- Nội dung thư chúc -->
         <div class="card-body-text">
           <p class="card-paragraph">
@@ -136,8 +156,30 @@
         </div>
       </div>
     </div>
+
+    <!-- Khung xem ảnh kỷ niệm bạn bè khi chạm vào bông hoa (Friend Photo Modal) -->
+    <div class="card-modal-backdrop" id="friend-photo-modal" role="dialog" aria-modal="true" aria-labelledby="friend-modal-name">
+      <div class="card-modal-container friend-modal-box">
+        <button class="card-close-btn" id="btn-close-friend-modal" title="Đóng">✕</button>
+        <div class="friend-modal-photo-wrap">
+          <img id="friend-modal-img" src="assets/friend1.jpg" alt="Ảnh kỷ niệm 20/10" class="friend-modal-img">
+          <div class="friend-modal-badge" id="friend-modal-badge">🌸 20/10 Rạng Rỡ 🌸</div>
+        </div>
+        <div class="friend-modal-content">
+          <h3 class="friend-modal-name" id="friend-modal-name">Bạn thương mến</h3>
+          <p class="friend-modal-wish-text" id="friend-modal-wish">
+            Chúc bạn luôn rạng rỡ, xinh đẹp và ngập tràn niềm vui hạnh phúc!
+          </p>
+          <div class="friend-modal-actions">
+            <button class="btn-friend-heart" id="btn-friend-heart">
+              💖 Thả tim chúc mừng
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <script src="main.js?v=8"></script>
+  <script src="main.js?v=9"></script>
 </body>
 </html>
