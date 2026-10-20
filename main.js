@@ -32,6 +32,7 @@ const TUYET_CONFIG = {
       title: 'Nét Duyên Dịu Dàng',
       badge: '🌸 Nụ Cười Nắng Thu 🌷',
       wish: 'Chúc Ánh Tuyết ngày 20/10 luôn xinh đẹp, ngọt ngào và giữ trọn nét hồn nhiên, đáng yêu trong từng khoảnh khắc thanh xuân! 🌷',
+      thumb: 'assets/tuyet/thumb-01.jpg',
       full: 'assets/tuyet/photo-01.jpg',
       avatar: 'assets/tuyet/avatar-01.png'
     },
@@ -40,6 +41,7 @@ const TUYET_CONFIG = {
       title: 'Ngọt Ngào Đáng Yêu',
       badge: '🍰 Dễ Thương Vô Đối 🎀',
       wish: 'Chúc nàng công chúa luôn được yêu thương, chiều chuộng và cuộc sống luôn ngập tràn những điều ngọt ngào như chiếc bánh kem nhỏ! 🍰✨',
+      thumb: 'assets/tuyet/thumb-02.jpg',
       full: 'assets/tuyet/photo-02.jpg',
       avatar: 'assets/tuyet/avatar-02.png'
     },
@@ -48,6 +50,7 @@ const TUYET_CONFIG = {
       title: 'Mùa Thu Trong Trẻo',
       badge: '🍂 Trong Veo Tinh Khôi 🌿',
       wish: 'Mong những ngày tháng tới của Tuyết luôn êm đềm, bình an và gặt hái thật nhiều thành công rực rỡ! 🍂🌸',
+      thumb: 'assets/tuyet/thumb-03.jpg',
       full: 'assets/tuyet/photo-03.jpg',
       avatar: 'assets/tuyet/avatar-03.png'
     },
@@ -56,6 +59,7 @@ const TUYET_CONFIG = {
       title: 'Sắc Hoa Nắng Ấm',
       badge: '🌹 Rực Rỡ Tỏa Nắng ☀️',
       wish: 'Nụ cười của Tuyết chính là đóa hoa đẹp nhất. Chúc bạn ngày 20/10 luôn kiêu sa và tự tin tỏa sáng theo cách riêng! 🌹',
+      thumb: 'assets/tuyet/thumb-04.jpg',
       full: 'assets/tuyet/photo-04.jpg',
       avatar: 'assets/tuyet/avatar-04.png'
     },
@@ -64,6 +68,7 @@ const TUYET_CONFIG = {
       title: 'Nắng Ban Mai',
       badge: '☀️ Tươi Vui Yêu Đời 💖',
       wish: 'Chúc bạn luôn giữ vững tinh thần lạc quan, yêu đời và luôn là nguồn cảm hứng tươi vui cho mọi người xung quanh! ☀️',
+      thumb: 'assets/tuyet/thumb-05.jpg',
       full: 'assets/tuyet/photo-05.jpg',
       avatar: 'assets/tuyet/avatar-05.png'
     },
@@ -72,6 +77,7 @@ const TUYET_CONFIG = {
       title: 'Ấm Áp & Dễ Thương',
       badge: '💖 Tươi Tắn Môi Cười 🌸',
       wish: 'Chúc Ánh Tuyết luôn ngập tràn năng lượng tích cực, nụ cười luôn tỏa nắng và mỗi ngày đều ngập tràn niềm vui ngọt ngào! 💖',
+      thumb: 'assets/tuyet/thumb-06.jpg',
       full: 'assets/tuyet/photo-06.jpg',
       avatar: 'assets/tuyet/avatar-06.png'
     },
@@ -80,6 +86,7 @@ const TUYET_CONFIG = {
       title: 'Nàng Thơ Áo Dài',
       badge: '👑 Duyên Dáng Dịu Êm ✨',
       wish: 'Chúc Tuyết luôn yêu kiều, duyên dáng và mọi ước mơ bạn ấp ủ đều sẽ trở thành hiện thực tuyệt đẹp! 🌸👑',
+      thumb: 'assets/tuyet/thumb-07.jpg',
       full: 'assets/tuyet/photo-07.jpg',
       avatar: 'assets/tuyet/avatar-07.png'
     },
@@ -88,6 +95,7 @@ const TUYET_CONFIG = {
       title: 'Ánh Mắt Tinh Anh',
       badge: '✨ Bản Lĩnh & Tự Tin 💫',
       wish: 'Chúc bạn luôn tự tin, bản lĩnh, gặt hái thật nhiều thành tích xuất sắc và luôn hạnh phúc trọn vẹn! 💫',
+      thumb: 'assets/tuyet/thumb-08.jpg',
       full: 'assets/tuyet/photo-08.jpg',
       avatar: 'assets/tuyet/avatar-08.png'
     },
@@ -96,6 +104,7 @@ const TUYET_CONFIG = {
       title: 'Cá Tính & Đáng Yêu',
       badge: '🎀 Độc Nhất Rạng Ngời 💖',
       wish: 'Chúc Ánh Tuyết luôn độc nhất, cuốn hút, luôn là phiên bản tuyệt vời và hạnh phúc nhất của chính mình! ✨💖',
+      thumb: 'assets/tuyet/thumb-09.jpg',
       full: 'assets/tuyet/photo-09.jpg',
       avatar: 'assets/tuyet/avatar-09.png'
     }
@@ -249,13 +258,14 @@ function buildGarden() {
   // =========================================================================
   // VƯỜN HOA CHI CHÍT DÀY ĐẶC NHƯ BAN ĐẦU (~150-180 HOA TRÊN DESKTOP, ~90 TRÊN MOBILE)
   // =========================================================================
-  const countT1 = Math.round(Math.max(16, Math.min(32, width / 44)));
-  const countT2 = Math.round(Math.max(18, Math.min(36, width / 40)));
-  const countT3 = Math.round(Math.max(18, Math.min(36, width / 40)));
-  const countT4 = Math.round(Math.max(16, Math.min(34, width / 38)));
-  const countT5 = Math.round(Math.max(10, Math.min(18, width / 80)));
-  const fillerCount = Math.round(Math.max(16, Math.min(32, width / 42)));
-  const accentBudCount = isMobile ? 8 : 16;
+  // Số lượng hoa tối ưu 60FPS: Dày đặc chi chít nhưng chạy siêu mượt không lag
+  const countT1 = isMobile ? 10 : 20;
+  const countT2 = isMobile ? 10 : 20;
+  const countT3 = isMobile ? 9 : 18;
+  const countT4 = isMobile ? 8 : 15;
+  const countT5 = isMobile ? 5 : 10;
+  const fillerCount = isMobile ? 6 : 14;
+  const accentBudCount = isMobile ? 6 : 12;
 
   // TẦNG 1: Tiền cảnh phủ sát đáy (hoa to, dày đặc ôm trọn chân vườn)
   for (let i = 0; i < countT1; i++) {
@@ -754,7 +764,7 @@ function renderAlbumGrid() {
     card.innerHTML = `
       <div class="album-polaroid-tape"></div>
       <div class="album-polaroid-media">
-        <img src="${item.full}" alt="${item.title}" class="album-polaroid-img" loading="lazy">
+        <img src="${item.thumb || item.full}" alt="${item.title}" class="album-polaroid-img" loading="lazy">
         <div class="album-media-badge">${item.badge}</div>
       </div>
       <div class="album-polaroid-desc">
