@@ -148,19 +148,21 @@ function createStemImageHTML(flip = false) {
 const FRIEND_DATA = {
   1: {
     id: 1,
-    name: 'Bạn thương mến',
+    name: 'Nàng Công Chúa Rạng Rỡ',
+    nickname: 'Công chúa nhỏ 🌸',
     avatar: 'assets/friend1-round.png',
     fullPhoto: 'assets/friend1.jpg',
-    badge: '🌸 20/10 Rạng Rỡ 🌸',
-    wish: 'Chúc bạn ngày 20/10 luôn rạng ngời xinh đẹp, tự tin, yêu đời và đạt được mọi điều ngọt ngào nhất trong cuộc sống! 💖'
+    badge: '👑 20/10 Rực Rỡ & Tỏa Sáng 🌸',
+    wish: 'Chúc nàng công chúa ngày 20/10 luôn rạng ngời xinh đẹp, tự tin, nụ cười luôn tỏa nắng và đón nhận muôn vàn yêu thương ngọt ngào nhất! 💖✨'
   },
   2: {
     id: 2,
-    name: 'Bạn dịu dàng',
+    name: 'Nàng Thơ Dịu Dàng',
+    nickname: 'Nàng thơ dịu dàng 🌷',
     avatar: 'assets/friend2-round.png',
     fullPhoto: 'assets/friend2.jpg',
-    badge: '🌷 20/10 Hạnh Phúc 🌷',
-    wish: 'Chúc bạn 20/10 ngập tràn niềm vui, nụ cười luôn tỏa nắng, an yên và luôn được yêu thương trọn vẹn mỗi ngày! ✨'
+    badge: '👑 20/10 Ngọt Ngào & Bình An 🌷',
+    wish: 'Chúc nàng thơ ngày 20/10 luôn đáng yêu, hạnh phúc trọn vẹn, tâm hồn bình yên và mỗi ngày đều nở rộ như đóa hoa ngát hương! 🌷✨'
   }
 };
 
@@ -415,9 +417,17 @@ function buildGarden() {
       headWrap.classList.add('has-photo-cameo');
       headWrap.innerHTML = createRoseImageHTML(item.palette) +
         '<div class="flower-photo-cameo" data-friend-id="' + item.photoFriend + '" title="Chạm để xem ảnh và lời chúc của ' + friend.name + '!">' +
-          '<img src="' + friend.avatar + '" alt="' + friend.name + '" class="photo-cameo-img">' +
-          '<div class="photo-cameo-ring"></div>' +
-          '<div class="photo-cameo-badge">💖</div>' +
+          '<div class="cameo-crown">👑</div>' +
+          '<div class="cameo-avatar-frame">' +
+            '<img src="' + friend.avatar + '" alt="' + friend.name + '" class="photo-cameo-img">' +
+            '<div class="photo-cameo-ring"></div>' +
+            '<div class="photo-cameo-sparkles">' +
+              '<span class="cameo-star star-1">✨</span>' +
+              '<span class="cameo-star star-2">💖</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="cameo-ribbon-bow">🎀</div>' +
+          '<div class="cameo-name-tag">' + friend.nickname + '</div>' +
         '</div>';
     } else if (item.type === 'button') {
       headWrap.innerHTML = createOrganicButtonSVG(item.palette, `g-${idx}`, item.sizePx);

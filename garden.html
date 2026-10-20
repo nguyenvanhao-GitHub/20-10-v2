@@ -101,19 +101,23 @@
           Mong những điều đẹp đẽ<br>luôn nở bên bạn.
         </h2>
 
-        <!-- Khung ảnh kỷ niệm 2 bạn trong thiệp chúc mừng -->
+        <!-- Khung ảnh kỷ niệm 2 bạn trong thiệp chúc mừng (Phong cách Công Chúa Cute) -->
         <div class="card-friends-polaroids">
-          <div class="polaroid-card">
+          <div class="polaroid-card" title="Chạm để phóng to ảnh Công Chúa!">
+            <div class="polaroid-crown">👑</div>
             <div class="polaroid-photo-wrap">
               <img src="assets/friend1.jpg" alt="Ảnh bạn 1" class="polaroid-img">
             </div>
-            <div class="polaroid-caption">Rạng rỡ & Xinh tươi 🌸</div>
+            <div class="polaroid-bow">🎀</div>
+            <div class="polaroid-caption">Công Chúa Rạng Rỡ 🌸</div>
           </div>
-          <div class="polaroid-card">
+          <div class="polaroid-card" title="Chạm để phóng to ảnh Nàng Thơ!">
+            <div class="polaroid-crown">👑</div>
             <div class="polaroid-photo-wrap">
               <img src="assets/friend2.jpg" alt="Ảnh bạn 2" class="polaroid-img">
             </div>
-            <div class="polaroid-caption">Ngọt ngào & Bình an 🌷</div>
+            <div class="polaroid-bow">🎀</div>
+            <div class="polaroid-caption">Nàng Thơ Dịu Dàng 🌷</div>
           </div>
         </div>
 
@@ -157,22 +161,26 @@
       </div>
     </div>
 
-    <!-- Khung xem ảnh kỷ niệm bạn bè khi chạm vào bông hoa (Friend Photo Modal) -->
+    <!-- Khung xem ảnh kỷ niệm bạn bè khi chạm vào bông hoa (Princess Photo Modal) -->
     <div class="card-modal-backdrop" id="friend-photo-modal" role="dialog" aria-modal="true" aria-labelledby="friend-modal-name">
       <div class="card-modal-container friend-modal-box">
         <button class="card-close-btn" id="btn-close-friend-modal" title="Đóng">✕</button>
+        <div class="princess-modal-crown-wrap">
+          <span class="princess-crown-icon">👑</span>
+        </div>
         <div class="friend-modal-photo-wrap">
           <img id="friend-modal-img" src="assets/friend1.jpg" alt="Ảnh kỷ niệm 20/10" class="friend-modal-img">
-          <div class="friend-modal-badge" id="friend-modal-badge">🌸 20/10 Rạng Rỡ 🌸</div>
+          <div class="friend-modal-badge" id="friend-modal-badge">👑 20/10 Rực Rỡ & Tỏa Sáng 🌸</div>
         </div>
+        <div class="princess-modal-bow">🎀</div>
         <div class="friend-modal-content">
-          <h3 class="friend-modal-name" id="friend-modal-name">Bạn thương mến</h3>
+          <h3 class="friend-modal-name" id="friend-modal-name">Nàng Công Chúa Rạng Rỡ</h3>
           <p class="friend-modal-wish-text" id="friend-modal-wish">
-            Chúc bạn luôn rạng rỡ, xinh đẹp và ngập tràn niềm vui hạnh phúc!
+            Chúc nàng công chúa ngày 20/10 luôn rạng ngời xinh đẹp, tự tin, nụ cười luôn tỏa nắng và đón nhận muôn vàn yêu thương ngọt ngào nhất! 💖✨
           </p>
           <div class="friend-modal-actions">
             <button class="btn-friend-heart" id="btn-friend-heart">
-              💖 Thả tim chúc mừng
+              💖 Bắn tim yêu thương
             </button>
           </div>
         </div>

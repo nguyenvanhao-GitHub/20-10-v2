@@ -1286,31 +1286,51 @@ html, body {
   }
 }
 
-
 /* ==========================================================================
-   FRIEND PHOTO CAMEOS ON FLOWERS (Ảnh bạn bè lồng vào nhụy hoa)
+   PRINCESS FLOWER CAMEOS (Bông hoa Công Chúa Cute lồng ảnh 2 bạn)
    ========================================================================== */
+.has-photo-cameo {
+  z-index: 35 !important;
+}
+
 .flower-photo-cameo {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 58%;
-  height: 58%;
+  width: 62%;
+  height: 62%;
   border-radius: 50%;
-  z-index: 5;
+  z-index: 40;
   cursor: pointer;
   pointer-events: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(0 4px 12px rgba(180, 50, 80, 0.4));
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  filter: drop-shadow(0 6px 16px rgba(220, 60, 100, 0.42));
+  transition: transform 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  animation: princessFloat 4s ease-in-out infinite alternate;
+}
+
+@keyframes princessFloat {
+  0% { transform: translate(-50%, -50%) translateY(0); }
+  100% { transform: translate(-50%, -50%) translateY(-5px); }
 }
 
 .flower-photo-cameo:hover {
-  transform: translate(-50%, -50%) scale(1.18);
-  filter: drop-shadow(0 6px 18px rgba(255, 105, 180, 0.65));
+  transform: translate(-50%, -50%) scale(1.18) translateY(-6px) !important;
+  filter: drop-shadow(0 8px 26px rgba(255, 105, 180, 0.85));
+  z-index: 55 !important;
+}
+
+.cameo-avatar-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .photo-cameo-img {
@@ -1319,41 +1339,116 @@ html, body {
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  border: 2.5px solid #ffffff;
-  box-shadow: 0 0 14px rgba(255, 182, 193, 0.95), inset 0 0 8px rgba(255, 255, 255, 0.7);
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 16px rgba(255, 192, 203, 0.95), 0 0 28px rgba(255, 105, 180, 0.5), inset 0 0 8px rgba(255, 255, 255, 0.7);
   pointer-events: none;
 }
 
+/* Vương miện công chúa nhỏ đội trên đầu */
+.cameo-crown {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-6deg);
+  font-size: 21px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 6px rgba(230, 160, 20, 0.75));
+  animation: crownWiggle 2.8s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes crownWiggle {
+  0% { transform: translateX(-50%) rotate(-8deg) scale(0.96); }
+  50% { transform: translateX(-50%) rotate(4deg) scale(1.08); }
+  100% { transform: translateX(-50%) rotate(-8deg) scale(0.96); }
+}
+
+/* Nơ ruy băng pastel dưới chân */
+.cameo-ribbon-bow {
+  position: absolute;
+  bottom: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 6px rgba(220, 60, 100, 0.45));
+  animation: bowFlutter 3.2s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes bowFlutter {
+  0% { transform: translateX(-50%) scale(0.95) rotate(-3deg); }
+  100% { transform: translateX(-50%) scale(1.08) rotate(3deg); }
+}
+
+/* Tag tên nhỏ nhắn dễ thương */
+.cameo-name-tag {
+  position: absolute;
+  bottom: -27px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(6px);
+  border: 1.2px solid #ffccd7;
+  border-radius: 9999px;
+  padding: 2px 9px;
+  font-family: var(--font-serif);
+  font-size: 11px;
+  font-weight: 600;
+  color: #ad2852;
+  white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(180, 50, 70, 0.2);
+  pointer-events: none;
+  z-index: 8;
+  letter-spacing: 0.2px;
+}
+
+/* Vòng xoay hào quang và bụi tiên lấp lánh */
 .photo-cameo-ring {
   position: absolute;
-  inset: -4px;
+  inset: -5px;
   border-radius: 50%;
-  border: 1.5px dashed rgba(255, 220, 230, 0.9);
-  animation: rotateRing 12s linear infinite;
+  border: 1.5px dashed rgba(255, 230, 240, 0.95);
+  animation: rotateRing 14s linear infinite;
   pointer-events: none;
 }
 
-.photo-cameo-badge {
+.photo-cameo-sparkles {
   position: absolute;
-  bottom: -3px;
-  right: -3px;
-  font-size: 13px;
-  line-height: 1;
-  background: rgba(255, 255, 255, 0.94);
-  border-radius: 50%;
-  padding: 3px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
-  animation: pulseHeart 1.6s ease-in-out infinite alternate;
+  inset: -10px;
   pointer-events: none;
+  border-radius: 50%;
 }
 
-@keyframes pulseHeart {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.25); }
+.cameo-star {
+  position: absolute;
+  font-size: 11px;
+  line-height: 1;
+  animation: starTwinkle 2s ease-in-out infinite alternate;
+}
+
+.cameo-star.star-1 {
+  top: -4px;
+  right: -4px;
+  animation-delay: 0s;
+}
+
+.cameo-star.star-2 {
+  bottom: 0px;
+  left: -5px;
+  animation-delay: 1s;
+}
+
+@keyframes starTwinkle {
+  0% { opacity: 0.3; transform: scale(0.7) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.3) rotate(45deg); filter: drop-shadow(0 0 6px #fff); }
+  100% { opacity: 0.4; transform: scale(0.8) rotate(90deg); }
 }
 
 /* ==========================================================================
-   POLAROID GALLERY IN CARD MODAL (Khung ảnh kỷ niệm trong thiệp)
+   POLAROID GALLERY IN CARD MODAL (Khung ảnh kỷ niệm Công Chúa trong thiệp)
    ========================================================================== */
 .card-friends-polaroids {
   display: flex;
@@ -1365,13 +1460,14 @@ html, body {
 }
 
 .polaroid-card {
+  position: relative;
   flex: 1;
   background: #ffffff;
-  padding: 6px 6px 10px;
-  border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(100, 40, 50, 0.14), 0 1px 3px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(220, 190, 180, 0.35);
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+  padding: 8px 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(100, 40, 50, 0.16), 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1.5px solid rgba(240, 205, 215, 0.6);
+  transition: transform 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.35s ease;
   cursor: pointer;
 }
 
@@ -1384,16 +1480,29 @@ html, body {
 }
 
 .polaroid-card:hover {
-  transform: rotate(0deg) scale(1.05) translateY(-4px);
-  box-shadow: 0 10px 24px rgba(100, 40, 50, 0.22);
+  transform: rotate(0deg) scale(1.06) translateY(-5px);
+  box-shadow: 0 12px 28px rgba(100, 40, 50, 0.25);
+  border-color: #f7a8b8;
+}
+
+.polaroid-crown {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(220, 160, 30, 0.6));
+  z-index: 5;
 }
 
 .polaroid-photo-wrap {
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   background: #f5ece7;
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .polaroid-img {
@@ -1403,40 +1512,68 @@ html, body {
   display: block;
 }
 
+.polaroid-bow {
+  position: absolute;
+  bottom: 24px;
+  right: 4px;
+  font-size: 15px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(220, 60, 100, 0.4));
+  z-index: 5;
+}
+
 .polaroid-caption {
   font-family: var(--font-serif);
   font-size: 11.5px;
   color: #63333e;
   text-align: center;
-  margin-top: 6px;
-  font-weight: 500;
+  margin-top: 7px;
+  font-weight: 600;
   white-space: nowrap;
 }
 
 /* ==========================================================================
-   FRIEND PHOTO POPUP MODAL (Khung phóng to ảnh kỷ niệm kèm lời chúc riêng)
+   PRINCESS PHOTO POPUP MODAL (Khung thiệp Công Chúa 20/10)
    ========================================================================== */
 .friend-modal-box {
-  max-width: 360px;
-  padding: 24px 22px 22px;
+  position: relative;
+  max-width: 370px;
+  padding: 26px 24px 22px;
   text-align: center;
+  border-radius: 26px;
+  background: #fffdfb;
+  border: 2px solid #ffd8e2;
+  box-shadow: 0 16px 40px rgba(140, 40, 70, 0.25);
   animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.princess-modal-crown-wrap {
+  margin-top: -8px;
+  margin-bottom: 4px;
+}
+
+.princess-crown-icon {
+  font-size: 32px;
+  line-height: 1;
+  display: inline-block;
+  filter: drop-shadow(0 3px 8px rgba(230, 160, 30, 0.7));
+  animation: crownWiggle 2.8s ease-in-out infinite alternate;
 }
 
 .friend-modal-photo-wrap {
   position: relative;
   width: 100%;
-  max-width: 250px;
-  margin: 0 auto 16px;
-  border-radius: 18px;
+  max-width: 260px;
+  margin: 0 auto 12px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(80, 20, 40, 0.22);
+  box-shadow: 0 10px 28px rgba(90, 20, 45, 0.25);
   border: 4px solid #ffffff;
 }
 
 .friend-modal-img {
   width: 100%;
-  max-height: 290px;
+  max-height: 300px;
   object-fit: cover;
   display: block;
 }
@@ -1446,32 +1583,42 @@ html, body {
   bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(4px);
-  padding: 4px 14px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  padding: 5px 16px;
   border-radius: 9999px;
   font-family: var(--font-serif);
-  font-size: 11.5px;
-  font-weight: 600;
-  color: #b03055;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ad2852;
   white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+  border: 1px solid #ffd8e2;
+}
+
+.princess-modal-bow {
+  font-size: 24px;
+  line-height: 1;
+  margin: -6px 0 6px;
+  filter: drop-shadow(0 2px 6px rgba(220, 60, 100, 0.4));
 }
 
 .friend-modal-name {
   font-family: var(--font-serif);
-  font-size: 20px;
-  color: #4a222c;
+  font-size: 21px;
+  color: #4a202a;
   margin: 0 0 8px;
+  font-weight: 700;
 }
 
 .friend-modal-wish-text {
   font-family: var(--font-serif);
-  font-size: 13.5px;
-  line-height: 1.65;
-  color: #683b46;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #63333e;
   margin: 0 0 16px;
   font-style: italic;
+  padding: 0 8px;
 }
 
 .friend-modal-actions {
@@ -1484,22 +1631,22 @@ html, body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 9px 20px;
+  padding: 10px 24px;
   background: linear-gradient(135deg, #f78da7 0%, #e05378 100%);
   color: #ffffff;
   border: none;
   border-radius: 9999px;
   font-family: var(--font-sans);
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(224, 83, 120, 0.38);
+  box-shadow: 0 4px 16px rgba(224, 83, 120, 0.4);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-friend-heart:hover {
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 6px 18px rgba(224, 83, 120, 0.5);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 22px rgba(224, 83, 120, 0.55);
 }
 
 .btn-friend-heart:active {
