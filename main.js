@@ -1,21 +1,20 @@
 /**
  * 20/10 - CẢ MỘT VƯỜN THƯƠNG (DÀNH TẶNG ÁNH TUYẾT)
  * Repository: https://github.com/nguyenvanhao-GitHub/20-10-v2.git
- * Ảnh cận mặt rõ nét, sắc sảo, đan xen cành lá tự nhiên chuẩn ảnh 2 mẫu.
+ * 100% Ảnh từ D:\BA-Tuyet, cận cảnh sắc nét, hoa thoáng đãng, hiệu ứng hoành tráng & tối ưu 60 FPS.
  */
 
 // =============================================================================
-// 1. DỮ LIỆU KỶ NIỆM VÀ LỜI CHÚC DÀNH CHO ÁNH TUYẾT (10 KHOẢNH KHẮC)
+// 1. DỮ LIỆU KHOẢNH KHẮC DÀNH CHO ÁNH TUYẾT (9 ẢNH CHÍNH THỨC TỪ D:\BA-Tuyet)
 // =============================================================================
 const TUYET_CONFIG = {
   id: 'tuyet',
   name: 'Ánh Tuyết',
   shortName: 'Tuyết',
   title: 'Nàng Thơ Ánh Tuyết 🌸',
-  flowerType: 'rose-pink',
   brandHeader: 'Dành Ánh Tuyết, cả một vườn thương.',
   introTitle: 'Gửi đóa hoa rạng rỡ Ánh Tuyết...',
-  introSubtitle: 'Chạm vào hoa, một điều dịu dàng đang chờ Tuyết ✨',
+  introSubtitle: 'Chạm vào hoa, một điều diệu kỳ đang chờ Tuyết ✨',
   bloomingSubtitle: 'Cả khu vườn hoa tươi thắm đang thức giấc vì Tuyết...',
   cardRecipient: 'Gửi Ánh Tuyết thương mến,',
   cardGreetingTitle: 'Mong những điều ngọt ngào nhất<br>luôn nở bên Tuyết.',
@@ -27,92 +26,81 @@ const TUYET_CONFIG = {
   ],
   cardClosing: 'Thương gửi Tuyết ngàn đóa hoa rực rỡ ♡',
   themeColor: '#ff6b8b',
-  avatarPreview: 'assets/tuyet/avatar-01.png',
   photos: [
     {
       id: 1,
-      title: 'Rạng Rỡ Nắng Thu',
-      badge: '👑 Nụ Cười Tỏa Nắng 🌸',
-      wish: 'Chúc Ánh Tuyết 20/10 luôn tràn ngập năng lượng tích cực, nụ cười luôn tỏa nắng và mỗi ngày đều ngập tràn niềm vui ngọt ngào! 💖',
+      title: 'Nét Duyên Dịu Dàng',
+      badge: '🌸 Nụ Cười Nắng Thu 🌷',
+      wish: 'Chúc Ánh Tuyết ngày 20/10 luôn xinh đẹp, ngọt ngào và giữ trọn nét hồn nhiên, đáng yêu trong từng khoảnh khắc thanh xuân! 🌷',
       full: 'assets/tuyet/photo-01.jpg',
       avatar: 'assets/tuyet/avatar-01.png'
     },
     {
       id: 2,
-      title: 'Nét Duyên Dịu Dàng',
-      badge: '✨ Dịu Dàng & Tươi Tắn 🌷',
-      wish: 'Chúc Tuyết luôn xinh đẹp, ngọt ngào và giữ trọn nét hồn nhiên, đáng yêu trong từng khoảnh khắc thanh xuân! 🌷',
+      title: 'Ngọt Ngào Đáng Yêu',
+      badge: '🍰 Dễ Thương Vô Đối 🎀',
+      wish: 'Chúc nàng công chúa luôn được yêu thương, chiều chuộng và cuộc sống luôn ngập tràn những điều ngọt ngào như chiếc bánh kem nhỏ! 🍰✨',
       full: 'assets/tuyet/photo-02.jpg',
       avatar: 'assets/tuyet/avatar-02.png'
     },
     {
       id: 3,
-      title: 'Ngọt Ngào Đáng Yêu',
-      badge: '🎀 Công Chúa Ngọt Ngào 🍰',
-      wish: 'Chúc nàng công chúa luôn được yêu thương, chiều chuộng và cuộc sống luôn ngập tràn những điều ngọt ngào như chiếc bánh kem nhỏ! 🍰✨',
+      title: 'Mùa Thu Trong Trẻo',
+      badge: '🍂 Trong Veo Tinh Khôi 🌿',
+      wish: 'Mong những ngày tháng tới của Tuyết luôn êm đềm, bình an và gặt hái thật nhiều thành công rực rỡ! 🍂🌸',
       full: 'assets/tuyet/photo-03.jpg',
       avatar: 'assets/tuyet/avatar-03.png'
     },
     {
       id: 4,
-      title: 'Mùa Thu Trong Trẻo',
-      badge: '🍂 Trong Veo Tinh Khôi 🌿',
-      wish: 'Mong những ngày tháng tới của Tuyết luôn êm đềm, bình an và gặt hái thật nhiều thành công rực rỡ! 🍂🌸',
+      title: 'Sắc Hoa Nắng Ấm',
+      badge: '🌹 Rực Rỡ Tỏa Nắng ☀️',
+      wish: 'Nụ cười của Tuyết chính là đóa hoa đẹp nhất. Chúc bạn ngày 20/10 luôn kiêu sa và tự tin tỏa sáng theo cách riêng! 🌹',
       full: 'assets/tuyet/photo-04.jpg',
       avatar: 'assets/tuyet/avatar-04.png'
     },
     {
       id: 5,
-      title: 'Sắc Hoa Nắng Ấm',
-      badge: '🌹 Rực Rỡ Sắc Hoa ☀️',
-      wish: 'Nụ cười của Tuyết chính là đóa hoa đẹp nhất. Chúc bạn ngày 20/10 luôn kiêu sa và tự tin tỏa sáng theo cách riêng! 🌹',
+      title: 'Nắng Ban Mai',
+      badge: '☀️ Tươi Vui Yêu Đời 💖',
+      wish: 'Chúc bạn luôn giữ vững tinh thần lạc quan, yêu đời và luôn là nguồn cảm hứng tươi vui cho mọi người xung quanh! ☀️',
       full: 'assets/tuyet/photo-05.jpg',
       avatar: 'assets/tuyet/avatar-05.png'
     },
     {
       id: 6,
-      title: 'Nắng Ban Mai',
-      badge: '☀️ Tươi Vui Rạng Ngời 💖',
-      wish: 'Chúc bạn luôn giữ vững tinh thần lạc quan, yêu đời và luôn là nguồn cảm hứng tươi vui cho mọi người xung quanh! ☀️',
+      title: 'Ấm Áp & Dễ Thương',
+      badge: '💖 Tươi Tắn Môi Cười 🌸',
+      wish: 'Chúc Ánh Tuyết luôn ngập tràn năng lượng tích cực, nụ cười luôn tỏa nắng và mỗi ngày đều ngập tràn niềm vui ngọt ngào! 💖',
       full: 'assets/tuyet/photo-06.jpg',
       avatar: 'assets/tuyet/avatar-06.png'
     },
     {
       id: 7,
-      title: 'Khoảnh Khắc Bình Yên',
-      badge: '☕ Ấm Áp & An Yên 🌸',
-      wish: 'Mong bạn luôn ấm áp, an yên và tìm thấy hạnh phúc giản đơn trong từng điều nhỏ bé mỗi ngày! ☕💕',
+      title: 'Nàng Thơ Áo Dài',
+      badge: '👑 Duyên Dáng Dịu Êm ✨',
+      wish: 'Chúc Tuyết luôn yêu kiều, duyên dáng và mọi ước mơ bạn ấp ủ đều sẽ trở thành hiện thực tuyệt đẹp! 🌸👑',
       full: 'assets/tuyet/photo-07.jpg',
       avatar: 'assets/tuyet/avatar-07.png'
     },
     {
       id: 8,
-      title: 'Nàng Thơ Áo Dài',
-      badge: '👑 Duyên Dáng Dịu Êm ✨',
-      wish: 'Chúc Tuyết luôn yêu kiều, duyên dáng và mọi ước mơ bạn ấp ủ đều sẽ trở thành hiện thực tuyệt đẹp! 🌸👑',
+      title: 'Ánh Mắt Tinh Anh',
+      badge: '✨ Bản Lĩnh & Tự Tin 💫',
+      wish: 'Chúc bạn luôn tự tin, bản lĩnh, gặt hái thật nhiều thành tích xuất sắc và luôn hạnh phúc trọn vẹn! 💫',
       full: 'assets/tuyet/photo-08.jpg',
       avatar: 'assets/tuyet/avatar-08.png'
     },
     {
       id: 9,
-      title: 'Ánh Mắt Tinh Anh',
-      badge: '✨ Bản Lĩnh & Tự Tin 💫',
-      wish: 'Chúc bạn luôn tự tin, bản lĩnh, gặt hái thật nhiều thành tích xuất sắc và luôn hạnh phúc trọn vẹn! 💫',
+      title: 'Cá Tính & Đáng Yêu',
+      badge: '🎀 Độc Nhất Rạng Ngời 💖',
+      wish: 'Chúc Ánh Tuyết luôn độc nhất, cuốn hút, luôn là phiên bản tuyệt vời và hạnh phúc nhất của chính mình! ✨💖',
       full: 'assets/tuyet/photo-09.jpg',
       avatar: 'assets/tuyet/avatar-09.png'
-    },
-    {
-      id: 10,
-      title: 'Cá Tính & Dễ Thương',
-      badge: '💖 Độc Nhất & Đáng Yêu 🎀',
-      wish: 'Chúc Ánh Tuyết luôn độc nhất, cuốn hút, luôn là phiên bản tuyệt vời và hạnh phúc nhất của chính mình! ✨💖',
-      full: 'assets/tuyet/photo-10.jpg',
-      avatar: 'assets/tuyet/avatar-10.png'
     }
   ]
 };
-
-const currentFriend = TUYET_CONFIG;
 
 // =============================================================================
 // 2. BẢNG MÀU PASTEL CHUẨN NGHỆ THUẬT (KHỚP ẢNH 2 MẪU)
@@ -244,7 +232,7 @@ function buildGarden() {
   const viewportHeight = window.innerHeight;
   const isMobile = viewportWidth < 768;
   const containerHeight = viewportHeight * (isMobile ? 0.72 : 0.65);
-  const sizeScale = isMobile ? Math.max(0.68, Math.min(1.0, viewportWidth / 480)) : Math.max(0.85, Math.min(1.2, viewportWidth / 1440));
+  const sizeScale = isMobile ? Math.max(0.70, Math.min(1.0, viewportWidth / 480)) : Math.max(0.85, Math.min(1.2, viewportWidth / 1440));
 
   function rand() {
     return Math.random();
@@ -257,12 +245,12 @@ function buildGarden() {
   const flowerItems = [];
 
   // TẦNG 1: Dưới thấp ôm chân vườn (Thoáng đãng, có thân cành vươn lên)
-  const countT1 = isMobile ? 8 : 14;
+  const countT1 = isMobile ? 8 : 13;
   for (let i = 0; i < countT1; i++) {
     const xPct = (i / (countT1 - 1)) * 96 + 2 + (rand() * 4 - 2);
     flowerItems.push({
       xPct: Math.max(1, Math.min(99, xPct)),
-      sizePx: Math.floor((100 + rand() * 32) * sizeScale),
+      sizePx: Math.floor((100 + rand() * 30) * sizeScale),
       heightPx: Math.floor(containerHeight * (0.16 + rand() * 0.12)),
       type: 'rose',
       layer: 28,
@@ -274,12 +262,12 @@ function buildGarden() {
   }
 
   // TẦNG 2: Tầm trung cận cảnh
-  const countT2 = isMobile ? 8 : 13;
+  const countT2 = isMobile ? 7 : 12;
   for (let i = 0; i < countT2; i++) {
     const xPct = ((i + 0.5) / countT2) * 94 + 3 + (rand() * 4 - 2);
     flowerItems.push({
       xPct: Math.max(2, Math.min(98, xPct)),
-      sizePx: Math.floor((110 + rand() * 30) * sizeScale),
+      sizePx: Math.floor((110 + rand() * 28) * sizeScale),
       heightPx: Math.floor(containerHeight * (0.30 + rand() * 0.14)),
       type: 'rose',
       layer: 22,
@@ -291,7 +279,7 @@ function buildGarden() {
   }
 
   // TẦNG 3: Tầng hoa vươn cao hé thân lá xanh
-  const countT3 = isMobile ? 7 : 12;
+  const countT3 = isMobile ? 6 : 11;
   for (let i = 0; i < countT3; i++) {
     const xPct = (i / (countT3 - 1)) * 94 + 3 + (rand() * 4 - 2);
     if (Math.abs(xPct - 50) < 7) continue;
@@ -309,7 +297,7 @@ function buildGarden() {
   }
 
   // TẦNG 4: Hoa cúc xoắn và nụ hoa cao thanh thoát trên nền trời
-  const countT4 = isMobile ? 5 : 9;
+  const countT4 = isMobile ? 5 : 8;
   for (let i = 0; i < countT4; i++) {
     const xPct = (i / (countT4 - 1)) * 92 + 4 + (rand() * 4 - 2);
     if (Math.abs(xPct - 50) < 9) continue;
@@ -329,7 +317,7 @@ function buildGarden() {
   }
 
   // NỤ HOA ĐIỂM XUYẾT MÀU SẮC
-  const budCount = isMobile ? 4 : 8;
+  const budCount = isMobile ? 4 : 7;
   for (let i = 0; i < budCount; i++) {
     const xPct = ((i + 0.5) / budCount) * 94 + 3 + (rand() * 4 - 2);
     flowerItems.push({
@@ -348,7 +336,7 @@ function buildGarden() {
 
   // 5 ĐÓA HOA CÔNG CHÚA CỦA ÁNH TUYẾT - TO VÀ RÕ NÉT CẬN MẶT
   const photos = TUYET_CONFIG.photos;
-  const cameoSize = Math.floor(isMobile ? 122 * sizeScale : 155 * sizeScale);
+  const cameoSize = Math.floor(isMobile ? 124 * sizeScale : 158 * sizeScale);
 
   const goldenCameoPositions = isMobile ? [
     { xPct: 18, hRatio: 0.38, photoIdx: 0, layer: 36 },
@@ -362,7 +350,7 @@ function buildGarden() {
     { xPct: 66, hRatio: 0.26, photoIdx: 2, layer: 38 },
     { xPct: 84, hRatio: 0.42, photoIdx: 3, layer: 36 },
     { xPct: 25, hRatio: 0.58, photoIdx: 4, layer: 35 },
-    { xPct: 75, hRatio: 0.58, photoIdx: 5, layer: 35 }
+    { xPct: 75, hRatio: 0.58, photoIdx: 5 % photos.length, layer: 35 }
   ];
 
   goldenCameoPositions.forEach((pos, idx) => {
@@ -455,7 +443,7 @@ function buildGarden() {
       const rect = headWrap.getBoundingClientRect();
       const clickX = e.clientX || (rect.left + rect.width / 2);
       const clickY = e.clientY || (rect.top + rect.height / 3);
-      spawnBurstParticles(clickX, clickY, item.photoFriend ? 18 : 8);
+      spawnBurstParticles(clickX, clickY, item.photoFriend ? 20 : 8);
 
       if (item.photoFriend) {
         openFriendPhotoModal(item.photoFriend);
@@ -472,7 +460,7 @@ function buildGarden() {
 }
 
 // =============================================================================
-// 4. KỊCH BẢN NỞ HOA & HIỆU ỨNG (BLOOM ENGINE)
+// 4. KỊCH BẢN NỞ HOA HOÀNH TRÁNG (GRAND BLOOM SHOCKWAVE & 60 FPS)
 // =============================================================================
 let hasBloomed = false;
 let isBlooming = false;
@@ -485,17 +473,29 @@ function triggerGardenBloom() {
   playBloomArpeggio();
   startPetalRain();
 
+  // Sóng xung kích ánh sáng lan tỏa
+  const shockwave = document.createElement('div');
+  shockwave.className = 'grand-shockwave';
+  document.body.appendChild(shockwave);
+  setTimeout(() => { shockwave.remove(); }, 1400);
+
+  // Pháo hoa trái tim bung nở từ hoa Hero
+  const heroWrapper = document.getElementById('hero-flower');
+  if (heroWrapper) {
+    const rect = heroWrapper.getBoundingClientRect();
+    spawnBurstParticles(rect.left + rect.width / 2, rect.top + rect.height / 3, 36);
+  }
+
   const butterflies = document.getElementById('butterflies-container');
   if (butterflies) {
     setTimeout(() => { butterflies.classList.add('active'); }, 400);
   }
 
-  const heroWrapper = document.getElementById('hero-flower');
   const heroIndicator = document.getElementById('hero-click-indicator');
   if (heroIndicator) heroIndicator.style.display = 'none';
 
   if (heroWrapper) {
-    heroWrapper.style.transform = 'translateX(-50%) scale(1.06)';
+    heroWrapper.style.transform = 'translateX(-50%) scale(1.08)';
     setTimeout(() => { heroWrapper.style.transform = 'translateX(-50%) scale(1.0)'; }, 450);
   }
 
@@ -553,7 +553,7 @@ function resetGardenBloom() {
 }
 
 // =============================================================================
-// 5. THIỆP CHÚC MỪNG 20/10 CỦA ÁNH TUYẾT
+// 5. THIỆP CHÚC MỪNG 20/10 CỦA ÁNH TUYẾT (KHÔNG CẮT XÉN, CÂN ĐỐI)
 // =============================================================================
 function openCardModal() {
   const modal = document.getElementById('card-modal');
@@ -688,7 +688,7 @@ function renderAlbumGrid() {
 
   const subtitle = document.querySelector('.album-modal-subtitle');
   if (subtitle) {
-    subtitle.textContent = `Trọn bộ 10 khoảnh khắc rạng rỡ của Ánh Tuyết 💖`;
+    subtitle.textContent = `Trọn bộ 9 khoảnh khắc rạng rỡ của Ánh Tuyết 💖`;
   }
 
   TUYET_CONFIG.photos.forEach((item) => {
@@ -848,7 +848,7 @@ function updateMusicBtnUI(playing) {
 }
 
 // =============================================================================
-// 10. CANVAS HIỆU ỨNG CÁNH HOA BAY & ĐOM ĐÓM LUNG LINH
+// 10. CANVAS HIỆU ỨNG CÁNH HOA BAY & ĐOM ĐÓM LUNG LINH (TỐI ƯU 60 FPS)
 // =============================================================================
 let canvas, ctx;
 let particles = [];
@@ -861,7 +861,7 @@ function initCanvasFX() {
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  for (let i = 0; i < 24; i++) {
+  for (let i = 0; i < 22; i++) {
     particles.push(createParticle(true));
   }
   isCanvasRunning = true;
@@ -879,21 +879,21 @@ function createParticle(isAmbient = false) {
   return {
     x: Math.random() * (canvas ? canvas.width : window.innerWidth),
     y: isAmbient ? Math.random() * (canvas ? canvas.height : window.innerHeight) : -20,
-    size: 6 + Math.random() * 8,
-    speedX: (Math.random() - 0.5) * 1.5,
-    speedY: 1.0 + Math.random() * 1.6,
+    size: 5 + Math.random() * 7,
+    speedX: (Math.random() - 0.5) * 1.4,
+    speedY: 0.9 + Math.random() * 1.4,
     rotation: Math.random() * 360,
-    rotSpeed: (Math.random() - 0.5) * 3,
+    rotSpeed: (Math.random() - 0.5) * 2.5,
     color: colors[Math.floor(Math.random() * colors.length)],
     opacity: 0.5 + Math.random() * 0.5
   };
 }
 
 function startPetalRain() {
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 35; i++) {
     setTimeout(() => {
-      if (particles.length < 80) particles.push(createParticle(false));
-    }, i * 70);
+      if (particles.length < 60) particles.push(createParticle(false));
+    }, i * 80);
   }
 }
 
